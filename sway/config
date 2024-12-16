@@ -4,7 +4,7 @@
 # Variables #
 #############
 
-# Logo key. Use Mod1 for Alt.
+# Super Key
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -64,7 +64,7 @@ exec mako
 ##########################
 
 # Wallpaer
-output * bg /usr/share/backgrounds/archlinux/geowaves.png fill
+output * bg /usr/share/backgrounds/archlinux/archwave.png fill
 
 # Screen Resolution stuff
    output eDP-1 resolution 1920x1080 position 0,0
@@ -158,6 +158,7 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -196,11 +197,18 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    
     # Adjust brightness
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    
     # Screenshot 
     bindsym Print exec grim
+    
+    # Music Controls ( Skip, Play/Pause , and Stop)
+    bindsym --locked XF86AudioPlay exec playerctl --player=spotify play-pause
+    bindsym --locked XF86AudioNext exec playerctl next 
+    bindsym --locked XF86AudioPrev exec playerctl previous
 
 ##########################################################################
 # <----------------- Color Settings for Bar and Windows ---------------> #
@@ -261,12 +269,8 @@ set $bar-color      #523d640D
 # Status Bar #
 ##############
 
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
     status_command i3status /home/$USER/.config/i3status/i3status.conf
     font pango: Droid Sans Mono 9
     colors {
