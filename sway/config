@@ -183,10 +183,10 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 ##############
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+s move scratchpad
 
     # Show scratchpad.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+s scratchpad show
 
 #############
 # Utilities #
