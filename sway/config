@@ -1,5 +1,7 @@
 ################################ Sway ###########################
 
+ # This is my actual i3 config just slightly modified for sway #
+
 #############
 # Variables #
 #############
@@ -19,18 +21,33 @@ set $right l
 
 # Terminal 
 set $term kitty
+
 # Application launcher
 set $menu rofi -modi drun -show drun
+
 # Browser
-set $browser librewolf
+set $browser firefox
 # Editor
 set $editor kitty -e nvim
+
 # File manager
 set $files kitty -e ranger
+
+# GUI file manager
+set $file_manager pcmanfm
+
+# Settings lmao :)
+set $settings kitty -e nvim /home/natasha/.config/sway/config
+
+# Alternate terminal 
+set $terminal foot
+
 
 ################
 # No titlebars #
 ################
+
+# Application border eraser
 
 for_window [title="^.*"] title_format ""
 default_floating_border normal 0
@@ -48,9 +65,10 @@ workspace_layout default
 exec "/usr/lib/polkit-kde-authentication-agent-1"
 
 # Autotiling
+# Just download autotiling from AUR...done.
 exec_always autotiling
 
-# Welcome message
+# My vain welcome message. ;)
 exec notify-send "Welcome back $USER you sexy ass bitch!"
 
 # Network manager
@@ -64,8 +82,7 @@ exec mako
 ##########################
 
 # Wallpaer
-# output * bg /usr/share/backgrounds/archlinux/archwave.png fill
-output * bg /home/natasha/Pictures/wallhaven-3lgk6y.png fill
+output * bg /home/natasha/Pictures/Screenshot_20250906_183642_Pinterest.jpg fill
 
 
 # Screen Resolution stuff
@@ -75,6 +92,8 @@ output * bg /home/natasha/Pictures/wallhaven-3lgk6y.png fill
 # Idle configuration #
 ######################
 
+# Screen timeout shit
+ 
 exec swayidle -w \
          timeout 300 'swaylock -f -c 313244' \
          timeout 300 'swaymsg "output * dpms off"' \
@@ -84,6 +103,8 @@ exec swayidle -w \
 #######################
 # Input configuration #
 #######################
+
+# Mouse and Touchpad shit
 
 input "type:touchpad" {
  
@@ -97,6 +118,8 @@ input "type:touchpad" {
 # Key bindings #
 ################
 
+# How to launch applications duh ;)
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -104,26 +127,40 @@ input "type:touchpad" {
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
+
+    # Launch settings lmao :) (windows short cut)
+    bindsym $mod+i exec $settings
 
     # Start browser
-    bindsym $mod+w exec $browser
+    bindsym $mod+b exec $browser
 
     # Start File manager
-    bindsym $mod+n exec $files
+    bindsym $mod+e exec $files
+
+    # Start GUI file manager
+    bindsym $mod+n $file_manager
 
     # Start editor
     bindsym $mod+v exec $editor
     
     # Lock screen
-    bindsym $mod+Shift+l exec swaylock -f -c 313244 
+    bindsym $mod+Shift+Escape exec swaylock -f -c 313244 
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
 
+    # Start alternate terminal
+    bindsym $mod+Shift+Return exec $terminal
+
+
 #######################################
 # <---------- Exit Sway ------------> #
 #######################################
+######## No mouse needed exit! ########
+#######################################
+
+# My beloved way to exit. Taken from i3 config
 
 mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
   bindsym l exec swaymsg exit
@@ -135,15 +172,41 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 
 bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
+# Pressing mod key+shift+e will bring up exit menu 
+# l = logout
+# r = reboot
+# s = shutdown
+
+
 #################
 # Moving around #
 #################
 
-    # Or use $mod+[up|down|left|right]
+# You get it..
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Or you can use $mod+arrow keys
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # Same, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
 
 ##############
 # Workspaces #
@@ -176,13 +239,17 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 ################
 # Layout stuff #
 ################
-    
-    assign [app_id="LibreWolf"] workspace number 2
-    for_window [app_id="LibreWolf"] workspace 2 
+
+# Firefox on workspace 2 please
+
+    assign [app_id="firefox"] workspace number 2
+    for_window [app_id="firefox"] workspace 2 
 
 ##############
 # Scratchpad #
 ##############
+
+# Not used much, but still here
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+s move scratchpad
@@ -193,6 +260,8 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 #############
 # Utilities #
 #############
+
+# Volume, screen brightness, Screenshot, and music controls :) happy stuff 
 
     # Volume
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
@@ -215,6 +284,8 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 ##########################################################################
 # <----------------- Color Settings for Bar and Windows ---------------> #
 ##########################################################################
+
+# Thers so many color options because this was my actual i3 config(years of different iterations)
 
 set $darkbluetrans	#08052be6
 set $darkblue		    #08052b
@@ -274,15 +345,8 @@ set $highlighthigh  #524f67
 # <------------- Colors for Windows ---------------> #
 ######################################################
 
- #  client.focused           #e345ff #e345ff #FFFFFF #FDF6E3
- #  client.focused_inactive  #2F3D44 #2F3D44 #FFFFFF #454948
- #  client.unfocused         #252522 #252522 #FFFFFF #454948
- #  client.urgent            #CB4B16 #FDF6E3 #1ABC9C #268BD2
- #  client.placeholder       #000000 #0c0c0c #ffffff #000000 
+# Theme for borders and Windows 
 
- #  client.background        #2B2C2B
-
-# Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
 client.focused           $rose     $base $text  $rose      $rose
 client.focused_inactive  $text     $base $text  $subtle    $surface
@@ -300,7 +364,7 @@ bar {
     status_command i3status /home/natasha/.config/i3status/i3status.conf
     font pango: Droid Sans Mono 9
     colors {
-        statusline #ffffff
+        statusline $white
         background $bar-color
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
