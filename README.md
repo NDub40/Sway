@@ -1,2 +1,2 @@
-# Sway
- My sway configuration
+# SwayWM
+ My sway configuration, mostly copied from my i3 configuration. 
