@@ -12,4 +12,4 @@ Could be adopted to any linux distribution. I have used this config on fedora,an
 
 I install a fresh Arch install and the rest of the packages I use are sprinkled in my config. Specific packages located in package list file ;)
 
-I use i3status because I dont need those kinds of distractions in my life.
+I use i3status because I dont need those kinds of distractions in my life. LazyVim for neovim distro.
