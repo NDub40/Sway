@@ -37,6 +37,9 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 ttf-font-awesome
 libreoffice
+i3status
+gimp 
+neovim
 
 YAY:
 nerd-font ( Fira Code )
