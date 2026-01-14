@@ -26,7 +26,8 @@ set $term kitty
 set $menu rofi -modi drun -show drun
 
 # Browser
-set $browser firefox
+set $browser librewolf
+
 # Editor
 set $editor kitty -e nvim
 
@@ -93,7 +94,7 @@ output * bg /home/natasha/Pictures/Screenshot_20250906_183642_Pinterest.jpg fill
 ######################
 
 # Screen timeout shit
- 
+
 exec swayidle -w \
          timeout 300 'swaylock -f -c 313244' \
          timeout 300 'swaymsg "output * dpms off"' \
@@ -114,6 +115,18 @@ input "type:touchpad" {
        middle_emulation enabled
    }
 
+##############################################################
+# Screen Auto Rotation for tablet mode and onscreen keyboard #
+##############################################################
+
+# Auto Screen Rotation
+exec rot8 
+
+# Onscreen Keyboard
+
+bindswitch tablet:on exec squeekboard &
+bindswitch tablet:off exec killall squeekboard
+
 ################
 # Key bindings #
 ################
@@ -127,7 +140,7 @@ input "type:touchpad" {
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+space exec $menu
+    bindsym $mod+d exec $menu
 
     # Launch settings lmao :) (windows short cut)
     bindsym $mod+i exec $settings
@@ -240,10 +253,10 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 # Layout stuff #
 ################
 
-# Firefox on workspace 2 please
+# Librewolf on workspace 2 please
 
-    assign [app_id="firefox"] workspace number 2
-    for_window [app_id="firefox"] workspace 2 
+    assign [app_id="librewolf"] workspace number 2
+    for_window [app_id="librewolf"] workspace 2 
 
 ##############
 # Scratchpad #
