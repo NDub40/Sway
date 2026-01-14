@@ -40,9 +40,19 @@ libreoffice
 i3status
 gimp 
 neovim
+ripgrep
+fzf
+fd
 ranger
 zathura
+android-tools
+kitty 
+wofi
+rofi
+
 
 YAY:
 nerd-font ( Fira Code )
 ttf-ms-fonts
+rot8
+Android Studio 
