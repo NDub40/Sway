@@ -73,10 +73,13 @@ exec_always autotiling
 exec notify-send "Welcome back $USER you sexy ass bitch!"
 
 # Network manager
-exec nm-applet
+exec nm-applet --indicator
 
 # Notifications
 exec mako
+
+# Bluetooth applet
+exec blueman-applet
 
 ##########################
 ### Output configuration #
