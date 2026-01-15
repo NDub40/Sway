@@ -298,7 +298,7 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 # <----------------- Color Settings for Bar and Windows ---------------> #
 ##########################################################################
 
-# Thers so many color options because this was my actual i3 config(years of different iterations)
+# There's so many color options because this was my actual i3 config (years of different iterations)
 
 set $darkbluetrans	#08052be6
 set $darkblue		    #08052b
