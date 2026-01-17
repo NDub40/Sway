@@ -81,6 +81,9 @@ exec mako
 # Bluetooth applet
 exec blueman-applet
 
+# KDEconnect indicator
+exec /usr/bin/kdeconnect-indicator
+
 ##########################
 ### Output configuration #
 ##########################
@@ -301,7 +304,7 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 # <----------------- Color Settings for Bar and Windows ---------------> #
 ##########################################################################
 
-# There's so many color options because this was my actual i3 config (years of different iterations)
+# Thers so many color options because this was my actual i3 config(years of different iterations)
 
 set $darkbluetrans	#08052be6
 set $darkblue		    #08052b
