@@ -88,8 +88,11 @@ exec /usr/bin/kdeconnect-indicator
 ### Output configuration #
 ##########################
 
-# Wallpaer
+# Wallpaer manually moving configs 🙄
 output * bg /home/natasha/Pictures/Screenshot_20250906_183642_Pinterest.jpg fill
+
+# When using install script uncomment 😊
+# output * bg ~/.dotfiles/wallpapers/my_wallpaper.jpg fill
 
 
 # Screen Resolution stuff
