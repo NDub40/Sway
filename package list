@@ -52,6 +52,12 @@ blueman
 kdeconnect
 sshfs
 squeekboard
+pipewire 
+pipewire-alsa 
+pipewire-pulse 
+pipewire-jack 
+wireplumber 
+qpwgraph
 
 # Enter this code to call squeekboard when triggered. It will not work otherwise.
 
