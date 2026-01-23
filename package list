@@ -59,7 +59,7 @@ pipewire-jack
 wireplumber 
 qpwgraph
 
-# Enter this code to call squeekboard when triggered. It will not work otherwise.
+# Enter this code to call squeekboard when triggered. It will not work otherwise.#
 
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 
