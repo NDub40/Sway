@@ -63,6 +63,8 @@ qpwgraph
 
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
 
+# Create sddm config in case it's missing (likely story)
+sddm --example-config > /etc/sddm.conf
 
 YAY:
 nerd-font ( Fira Code )
